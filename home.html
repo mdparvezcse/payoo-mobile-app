@@ -37,27 +37,27 @@
                 is low and </p>
         </div>
         <div class="grid grid-cols-3 gap-4 mt-2 p-4">
-            <div class="border-2 border-[#08080880] rounded-[12px] p-3" id="add-money-card-btn">
+            <div class="border-2 border-[#08080880] rounded-[12px] p-3 activated" id="add-money-card-btn">
                 <img src="assets/wallet1.png" alt="" class="mx-auto">
                 <h1 class="text-center mt-3 font-semibold text-[#08080880]">Add Money</h1>
             </div>
-            <div class="border-2 border-[#08080880] rounded-[12px] p-3" id="cash-out-card-btn">
+            <div class="border-2 border-[#08080880] rounded-[12px] p-3 activated" id="cash-out-card-btn">
                 <img src="assets/send1.png" alt="" class="mx-auto">
                 <h1 class="text-[#08080880] text-center mt-3 font-semibold">Cashout</h1>
             </div>
-            <div class="border-2 border-[#08080880] rounded-[12px] p-3" id="transfer-card-btn">
+            <div class="border-2 border-[#08080880] rounded-[12px] p-3 activated" id="transfer-card-btn">
                 <img src="assets/money1.png" alt="" class="mx-auto">
                 <h1 class="text-[#08080880] text-center mt-3 font-semibold">Transfer Money</h1>
             </div>
-            <div class="border-2 border-[#08080880] rounded-[12px] p-3" id="bonus-card-btn">
+            <div class="border-2 border-[#08080880] rounded-[12px] p-3 activated" id="bonus-card-btn">
                 <img src="assets/bonus1.png" alt="" class="mx-auto">
                 <h1 class="text-[#08080880] text-center mt-3 font-semibold">Get Bonus</h1>
             </div>
-            <div class="border-2 border-[#08080880] rounded-[12px] p-3" id="pay-bill-card-btn">
+            <div class="border-2 border-[#08080880] rounded-[12px] p-3 activated" id="pay-bill-card-btn">
                 <img src="assets/purse1.png" alt="" class="mx-auto">
                 <h1 class="text-[#08080880] text-center mt-3 font-semibold">Pay Bill</h1>
             </div>
-            <div class="border-2 border-[#08080880] rounded-[12px] p-3" id="transaction-card-btn">
+            <div class="border-2 border-[#08080880] rounded-[12px] p-3 activated" id="transaction-card-btn">
                 <img src="assets/transaction1.png" alt="" class="mx-auto">
                 <h1 class="text-[#08080880] text-center mt-3 font-semibold">Transaction</h1>
             </div>
@@ -103,6 +103,8 @@
 
             </form>
         </div>
+
+
 
         <!-- cash out  -->
 
@@ -214,7 +216,22 @@
         <!-- transaction -->
 
         <div class="mt-3 ml-4 mr-4 Features" id="transaction-section" style="display: none;">
-            <h1 class="font-bold">Transaction History</h1>
+            <div class="flex justify-between items-center">
+                <h1 class="font-bold">Transaction History</h1>
+                <h1 class="text-[#08080880]">View All</h1>
+            </div>
+            <div class="flex justify-between items-center bg-white rounded-[16px] p-4 mt-3">
+                <div class="flex items-center gap-3">
+                    <div class="p-4 rounded-full bg-[#F4F5F7]">
+                        <img src="assets/wallet1.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-bold">Add Money</h1>
+                        <p>Today 01:44 AM</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical text-gray-600"></i>
+            </div>
         </div>
     </section>
 
