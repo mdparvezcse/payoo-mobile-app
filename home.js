@@ -1,16 +1,41 @@
+
+// function get input value
+
+function getInputValue(id) {
+    const value = document.getElementById(id).value;
+    return value;
+}
+
+// function get input number 
+
+function getInputNumber(id) {
+    const number = parseInt(document.getElementById(id).value);
+    return number;
+}
+
+// function get inner line number
+
+function getInnerTextNumber(id) {
+    const number = parseInt(document.getElementById(id).innerText);
+    return number;
+}
+
+
+// important variable
+const saveAccountNumber = 12345678901;
+const savePin = 1234;
+
+// Add Money
+
 document.getElementById('add-money-btn').addEventListener('click', function (e) {
     e.preventDefault();
-    const saveAcountNumber = 12345678901;
-    const savePin = 1234;
-    const getBank = document.getElementById('select-bank').value;
-    const getAcountNumber = parseInt(document.getElementById('acount-number').value);
-    const getAmount = parseInt(document.getElementById('add-amount').value);
-    const getPin = parseInt(document.getElementById('pin').value);
+    const getBank = getInputValue('select-bank');
+    const getAccountNumber = getInputNumber('acount-number');
+    const getAmount = getInputNumber('add-amount');
+    const getPin = getInputNumber('pin');
+    const getBalance = getInnerTextNumber('balance');
 
-    const getBalance = parseInt(document.getElementById('balance').innerText);
-
-
-    if (saveAcountNumber !== getAcountNumber) {
+    if (saveAccountNumber !== getAccountNumber) {
         alert('Please provide correct Account Number');
         return;
     }
@@ -20,42 +45,68 @@ document.getElementById('add-money-btn').addEventListener('click', function (e) 
     }
     const totalBalance = getBalance + getAmount;
     document.getElementById('balance').innerText = totalBalance;
-
 })
+
 
 // cash out function
 document.getElementById('withdraw-btn').addEventListener("click", function (e) {
     e.preventDefault();
-    const savePin = 1234; 
-    const getAgentNumber = document.getElementById('agent-number').value;
-    const getWithdrawAmount = parseInt(document.getElementById('withdraw-amount').value);
-    const getWithdrawPin = parseInt(document.getElementById('withdraw-pin').value);
-
-    const getBalance = document.getElementById('balance').innerText;
+    const getAgentNumber = getInputValue('agent-number');
+    const getWithdrawAmount = getInputNumber('withdraw-amount');
+    const getWithdrawPin = getInputNumber('withdraw-pin');
+    const getBalance = getInnerTextNumber('balance');
     const currentBalance = getBalance - getWithdrawAmount;
-    console.log(currentBalance)
-    console.log(length.getAgentNumber);
-    if(getAgentNumber.toString().length !== 11){
+
+    if (getAgentNumber.length != 11) {
         alert('Provide valid Agent Number');
         return;
     }
-    if(savePin !== getWithdrawPin){
+    if (savePin !== getWithdrawPin) {
         alert('Please provide correct PIN');
         return
     }
-
     document.getElementById('balance').innerText = currentBalance;
-
 })
+
+
+
+// toggle function
+
+function toggle(id) {
+    const section = document.getElementsByClassName("Features");
+    for (const sec of section) {
+        sec.style.display = "none";
+    }
+    document.getElementById(id).style.display = "block";
+}
 
 // toggle
 
-document.getElementById('add-money-card-btn').addEventListener('click',function(){
-    document.getElementById('add-money-section').style.display = "block"
-    document.getElementById('cash-out-section').style.display = "none";
+document.getElementById('add-money-card-btn').addEventListener('click', function () {
+    toggle('add-money-section');
 })
 
-document.getElementById('cash-out-card-btn').addEventListener('click',function(){
-    document.getElementById('cash-out-section').style.display = "block";
-    document.getElementById('add-money-section').style.display = "none"
+document.getElementById('cash-out-card-btn').addEventListener('click', function () {
+    toggle('cash-out-section');
+
+})
+
+document.getElementById('transfer-card-btn').addEventListener('click', function () {
+    toggle('transfer-money-section');
+
+})
+
+document.getElementById('bonus-card-btn').addEventListener('click', function () {
+    toggle('bonus-section');
+
+})
+
+document.getElementById('pay-bill-card-btn').addEventListener('click', function () {
+    toggle('pay-bill-section');
+
+})
+
+document.getElementById('transaction-card-btn').addEventListener('click', function () {
+    toggle('transaction-section');
+
 })
