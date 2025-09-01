@@ -107,6 +107,34 @@ function activated(id) {
     document.getElementsById(id).classList.remove("border-[#08080880]");
 }
 
+document.getElementById('transaction-card-btn').addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const transactionContainer = document.getElementById('transaction-section');
+    transactionData.innerText = '';
+
+    for (const item of transactionData) {
+        const div = document.createElement("div");
+        div.innerHTML = 
+        `
+            <div class="flex justify-between items-center bg-white rounded-[16px] p-4 mt-3">
+                <div class="flex items-center gap-3">
+                    <div class="p-4 rounded-full bg-[#F4F5F7]">
+                        <img src="assets/wallet1.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-bold">${item.name}</h1>
+                        <p>${item.time}</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical text-gray-600"></i>
+            </div>
+        `;
+
+        transactionContainer.appendChild(div);
+    }
+})
+
 // toggle
 
 document.getElementById('add-money-card-btn').addEventListener('click', function () {
